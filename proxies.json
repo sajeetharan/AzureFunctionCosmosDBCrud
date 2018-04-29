@@ -1,0 +1,33 @@
+{
+    "$schema": "http://json.schemastore.org/proxies",
+    "proxies": {
+        "CustomerCreateProxy": {
+            "matchCondition": {
+                "methods": [ "PUT" ],
+                "route": "/proxy/create/"
+            },
+            "backendUri": "https://%AnotherAppId%.azurewebsites.net/api/customers/"
+        },
+        "CustomerDeleteProxy": {
+            "matchCondition": {
+                "methods": [ "DELETE" ],
+                "route": "/proxy/delete/{customerid}"
+            },
+            "backendUri": "https://%AnotherAppId%.azurewebsites.net/api/customers/del/{customerid}"
+        },
+        "CustomerReadProxy": {
+            "matchCondition": {
+                "methods": [ "GET" ],
+                "route": "/proxy/read/{customerid}"
+            },
+            "backendUri": "https://%AnotherAppId%.azurewebsites.net/api/customers/{customerid}"
+        },
+        "CustomerUpdateProxy": {
+            "matchCondition": {
+                "methods": [ "POST" ],
+                "route": "/proxy/update/{id}"
+            },
+            "backendUri": "https://%AnotherAppId%.azurewebsites.net/api/customers/update/{id}"
+        }
+    }
+}

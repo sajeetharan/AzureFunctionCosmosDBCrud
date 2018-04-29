@@ -1,0 +1,29 @@
+{
+  "bindings": [
+    {
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "input",
+      "route": "customers/update/{id}",
+      "methods": [
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    },
+    {
+      "name": "customer",
+      "type": "documentDb",
+      "databaseName": "%CosmosDbDatabaseName%",
+      "collectionName": "%CosmosDbCollectionName%",
+      "id":"{id}",
+      "createIfNotExists": true,
+      "connection": "azure-functions-proxy-cosmos-db_DOCUMENTDB",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}

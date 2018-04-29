@@ -1,0 +1,28 @@
+{
+  "bindings": [
+    {
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "route": "customers/del/{customerid}",
+      "methods": [
+        "delete"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    },
+    {
+      "name": "client",
+      "type": "documentDb",
+      "databaseName": "%CosmosDbDatabaseName%",
+      "collectionName": "%CosmosDbCollectionName%",
+      "createIfNotExists": true,
+      "connection": "azure-functions-proxy-cosmos-db_DOCUMENTDB",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
